@@ -1,6 +1,67 @@
 import tkinter as tk
 from tkinter import ttk
 
+# Conversion functions
+def km_to_miles(km):
+    return km * 0.621371
+
+def meters_to_feet(meters):
+    return meters * 3.28084
+
+def cm_to_inches(cm):
+    return cm * 0.393701
+
+def kg_to_pounds(kg):
+    return kg * 2.20462
+
+def liters_to_gallons(liters):
+    return liters * 0.264172
+
+def celsius_to_fahrenheit(celsius):
+    return (celsius * 9/5) + 32
+
+def convert():
+    try:
+        km = float(entry_km.get())
+        miles = km_to_miles(km)
+        label_result_km.config(text=f"{km} km = {miles:.2f} miles")
+    except ValueError:
+        label_result_km.config(text="Invalid input for km to miles")
+
+    try:
+        meters = float(entry_meters.get())
+        feet = meters_to_feet(meters)
+        label_result_meters.config(text=f"{meters} meters = {feet:.2f} feet")
+    except ValueError:
+        label_result_meters.config(text="Invalid input for meters to feet")
+
+    try:
+        cm = float(entry_cm.get())
+        inches = cm_to_inches(cm)
+        label_result_cm.config(text=f"{cm} cm = {inches:.2f} inches")
+    except ValueError:
+        label_result_cm.config(text="Invalid input for cm to inches")
+
+    try:
+        kg = float(entry_kg.get())
+        pounds = kg_to_pounds(kg)
+        label_result_kg.config(text=f"{kg} kg = {pounds:.2f} pounds")
+    except ValueError:
+        label_result_kg.config(text="Invalid input for kg to pounds")
+
+    try:
+        liters = float(entry_liters.get())
+        gallons = liters_to_gallons(liters)
+        label_result_liters.config(text=f"{liters} liters = {gallons:.2f} gallons")
+    except ValueError:
+        label_result_liters.config(text="Invalid input for liters to gallons")
+
+    try:
+        celsius = float(entry_celsius.get())
+        fahrenheit = celsius_to_fahrenheit(celsius)
+        label_result_celsius.config(text=f"{celsius} °C = {fahrenheit:.2f} °F")
+    except ValueError:
+        label_result_celsius.config(text="Invalid input for °C to °F")
 
 def clear():
     entry_km.delete(0, tk.END)
